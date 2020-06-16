@@ -1,0 +1,3 @@
+docker build -t ft_server:ft_server .
+docker run -it -p 80:80 -p 443:433 --name ft_server [image ID]
+docker run -it -p 80:80 -p 443:443 ft_server:latest /bin/bash

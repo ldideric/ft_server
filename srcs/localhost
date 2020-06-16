@@ -10,14 +10,15 @@ server
 {
 	listen		443			ssl;
 	listen		[::]:443	ssl;
+
+	server_name localhost www.localhost;
+
 	ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
 	ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
-	root /var/www/localhost;
+	root /wordpress;
 
-	index index.html index.htm index.nginx-debian.html index.php;
-
-	server_name localhost www.localhost;
+	index index.php;
 
 	location /
 	{
