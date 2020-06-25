@@ -16,7 +16,7 @@ server
 	ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
 	ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
-	root var/www/localhost/wordpress;
+	root /var/www/localhost/wordpress;
 
 	index index.php;
 
