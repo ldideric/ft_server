@@ -16,12 +16,14 @@ server
 	ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
 	ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
-	root /var/www/localhost/wordpress;
+	root /var/www/localhost;
 
+	client_max_body_size 20m;
 	index index.php;
 
 	location /
 	{
+		autoindex on;
 		try_files $uri $uri/ =404;
 	}
 
