@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/09 00:02:37 by nben-ezr      #+#    #+#                  #
-#    Updated: 2020/07/01 15:48:55 by ldideric      ########   odam.nl          #
+#    Updated: 2020/07/01 18:30:30 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,11 @@ RUN mkdir -p var/www/localhost && \
 	cp srcs/localhost /etc/nginx/sites-available/localhost && \
 	ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost && \
 # install mysql
-	mv srcs/user.sql /tmp && \
-	mv srcs/db.sql /tmp && \
-	mv srcs/wordpress.sql /tmp && \
+	mv srcs/user.sql srcs/db.sql srcs/wordpress.sql srcs/create_tables.sql /tmp && \
 	service mysql start && mysql -u root mysql < /tmp/db.sql && \
 	service mysql start && mysql -u root mysql < /tmp/user.sql && \
 	service mysql start && mysql -u root mysql < /tmp/wordpress.sql && \
+	service mysql start && mysql -u root mysql < /tmp/create_tables.sql && \
 # install phpmyadmin
 	tar xvfz srcs/phpMyAdmin*.tar.gz && \
 	mv phpMyAdmin* var/www/localhost/phpmyadmin && \
