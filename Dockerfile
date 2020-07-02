@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/09 00:02:37 by nben-ezr      #+#    #+#                  #
-#    Updated: 2020/07/01 18:30:30 by ldideric      ########   odam.nl          #
+#    Updated: 2020/07/02 16:09:24 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ RUN mkdir -p var/www/localhost && \
 	rm -rf wordpress/wp-config-sample.php && \
 	mv wordpress/* var/www/localhost && \
 	rm -rf wordpress && \
+	chown -R www-data:www-data /var/www/* && \
 # edit max uploade size
 	sed -i '/upload_max_filesize/c upload_max_filesize = 20M' /etc/php/7.3/fpm/php.ini && \
 	sed -i '/post_max_size/c post_max_size = 21M' /etc/php/7.3/fpm/php.ini 
